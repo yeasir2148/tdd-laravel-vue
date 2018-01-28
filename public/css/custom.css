@@ -1,0 +1,50 @@
+.flex-container {
+    display: flex;
+}
+
+.stretch {
+    flex: 1;
+}
+
+._mar_top_0 {
+    margin-top: 0;
+}
+
+._mar_bot_0 {
+    margin-bottom: 0;
+}
+
+.mr-1 {
+    margin-right: 1em;
+}
+
+.text-blue {
+    color: blue;
+}
+
+.nav > li > a.top-nav-dropdown {
+    border: 0px;
+    padding-right: 0px;
+    padding-left: 5px;
+}
+
+.nav > li > a.top-nav-dropdown-caret {
+    border: 0px;
+}
+
+.nav > li > a.top-nav-dropdown-badge {
+    border: 0px;
+    padding-right: 0px;
+}
+
+.glyphicon-blue {
+    color: #0077CC;
+}
+
+.badge-green {
+    color: green;
+}
+
+[v-cloak] {
+    display: none;
+}

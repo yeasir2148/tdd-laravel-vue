@@ -1,0 +1,1 @@
+@include('profile.activity.activity-Reply-'.$activity->activity_type)

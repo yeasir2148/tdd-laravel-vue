@@ -1,0 +1,55 @@
+<template>
+    <div>   
+        <div v-for="(reply, index) in all_reply_items">
+            <reply :attributes="reply" :key="reply.id" :current_user_id="auth_user_id" @iamdeleted="updateCollection(index)"></reply>
+        </div>
+        
+        <pagination></pagination>
+    </div>
+
+
+</template>
+
+<script>
+    import Reply from './Reply.vue';
+    export default{
+
+        components: { Reply },
+
+        props: ['all_replies','auth_user_id','thread_id'],
+
+        data() {
+            return {
+                all_reply_items: this.all_replies,
+                replies_with_pagination: null,
+            }
+        },
+
+        methods: {
+            updateCollection: function(index){
+                this.all_reply_items.splice(index,1);
+                this.$emit('repliescountchanged',this.all_reply_items.length);
+            },
+
+            fetch: function(){
+                let vm = this;
+                axios.get(route('replies.paginated',{ 'thread' : this.thread_id }))
+                .then(function(serverResponse){
+                    vm.replies_with_pagination = serverResponse.data;
+                });
+            },
+        },
+
+        created() {
+            this.fetch();
+
+            window.vueMessageBus.$on('notifyingrepliescomponent',newReply => {
+               console.log('added object: ' + newReply);
+               this.all_reply_items.push(newReply);
+               this.$emit('repliescountchanged',this.all_reply_items.length);
+            });        
+        },
+
+        
+    }
+</script>

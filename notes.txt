@@ -1,0 +1,6 @@
+#we are making a forum
+
+
+*THREAD
+*USER
+*REPLY

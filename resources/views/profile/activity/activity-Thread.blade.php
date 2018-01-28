@@ -1,0 +1,1 @@
+@include('profile.activity.activity-Thread-'.$activity->activity_type )
