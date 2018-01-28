@@ -77,8 +77,7 @@
                 </div-->
                 
             </div>
-    @endforelse
-
+            @endforelse
         </div>
     </div>
     

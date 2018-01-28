@@ -20,7 +20,11 @@
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
                 &nbsp;
-                
+                @can('create','App\Thread')
+                <li>
+                    <a href="{{ route('thread.create') }}">Create Thread</a>
+                </li>
+                @endcan
                 <li class="dropdown">
                     <a class=" dropdown-toggle" href="#" id="authorDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">
                       Browse
